@@ -18,15 +18,18 @@ const RecordBtnFr = ({onAppendMessage}) => {
 
 
 // サーバーの定義
-  const flaskURL = "http://localhost:8000";
+  const serverURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+
+
 
   useEffect(() => {
-    const newSocket = io(flaskURL)
+    const newSocket = io(serverURL)
     setSocket(newSocket)
     // socketに接続
     newSocket.on("response_to_react", (data) => {
       console.log("サーバーからgpt_responseを受け取りました:", data);
       processData(data); 
+      playAiVoice(data);
     });
 
    return () => {
@@ -43,12 +46,16 @@ const RecordBtnFr = ({onAppendMessage}) => {
   }
 
   const processData = (data) => {
-    const text = data.ai_response
+    const text = data.gpt_response
     const type = "received"
-    console.log("処理中のデータ:", data.ai_response)
+    console.log("処理中のデータ:", data.gpt_response)
     onAppendMessage(text, type)
   };
 
+  const playAiVoice = (data) => {
+    const audio = new Audio(`data:audio/mp3;base64,${data.text_to_speech_data}`);
+    audio.play();
+  };
 
   //メッセージフロントに送信
   const sendMessageToFrontEnd = () => {

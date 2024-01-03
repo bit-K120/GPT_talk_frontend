@@ -7,15 +7,17 @@ const Dropdowns = ({onLanguageSelect}) => {
     const [selectedLanguage, setselectedLanguage] = useState("-select");
     const [selectedMode, setselectedMode] = useState("-select");
     const [socket,setSocket] = useState(null);
-    const flaskURL = "http://localhost:8000";
+    const serverURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+
 
     useEffect (() => {
-        const newSocket = io(flaskURL)
+        const newSocket = io(serverURL)
         setSocket(newSocket);
 
         return () => {
         if (newSocket.connected) {
             newSocket.disconnect();
+            setSocket(null)
             }
         };
 

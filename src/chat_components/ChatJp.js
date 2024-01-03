@@ -1,31 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./chat.css";
 import RecordBtnJp from "./RecordBtnJp";
-import io from "socket.io-client";
 
 
 const ChatJp = () => {
-  const [socket,setSocket] = useState(null);
   const [messages , setMessages] = useState([])
-  const Ai_image = "/French_teacher.jpg"
+  const Ai_image = "/japanese_teacher.jpg"
   const User_image = "/only face (1).jpg"
-  const flaskURL = "http://localhost:8000";
   const welcomeMessage = " Chat.AIへようこそ！質問をしたり、面白いことを共有してみてください！   「録音」を押して、会話を始めましょう。"
-
-  useEffect(() => {
-  
-
-  const newSocket = io(flaskURL)
-  setSocket(newSocket)
-  // socketに接続
-  newSocket.emit("welcome_message", welcomeMessage)
-  console.log("SENT welcomeMessage")
-
-  return () => {
-    newSocket.disconnect();
-  };
-
-},[]);
 
   const appendMessage = (newMessage, type) => {
     const messageObject = {
