@@ -7,7 +7,7 @@ const Dropdowns = ({onLanguageSelect}) => {
     const [selectedLanguage, setselectedLanguage] = useState("-select");
     const [selectedMode, setselectedMode] = useState("-select");
     const [socket,setSocket] = useState(null);
-    const serverURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+    const serverURL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000";
 
 
     useEffect (() => {

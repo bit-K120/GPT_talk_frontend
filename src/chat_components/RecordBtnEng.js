@@ -17,7 +17,7 @@ const RecordBtnEng = ({onAppendMessage}) => {
 
 
 // サーバーの定義
-  const serverURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const serverURL = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000";
 
 
   useEffect(() => {
