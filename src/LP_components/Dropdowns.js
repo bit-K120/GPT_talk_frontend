@@ -110,7 +110,7 @@ const Dropdowns = ({onLanguageSelect}) => {
            
             {selectedMode === "Translate" && (
                 <div className="btn-group-4 d-inline-block">
-                    <p className="text-above-button-d custom-margin">Output Language</p>
+                    <p className="text-above-button-d custom-margin">翻訳後の言語</p>
                     <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: 'black' }}>
                         {selectedOutLanguage}
                     </button>
