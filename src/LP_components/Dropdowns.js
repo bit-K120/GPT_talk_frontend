@@ -77,17 +77,17 @@ const Dropdowns = ({onLanguageSelect}) => {
    return(
    
    <><div className="btn-group-1 d-inline-block">
-           <p className="text-above-button-a custom-margin">Choose AI</p>
+           <p className="text-above-button-a custom-margin">AI 選択</p>
            <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: 'black' }}>
                {selectedAi}
            </button>
            <div className="dropdown-menu custom-dropdown-menu">
-               <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("chat GPT")}}>Chat GPT</a>
+               <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("chat GPT")}}>Chat GPT(Stable)</a>
                <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("Mistral 7B")}}>Mistral 7B</a>
            </div>
        </div>
        <div className="btn-group-3 d-inline-block">
-               <p className="text-above-button-c custom-margin">Mode</p>
+               <p className="text-above-button-c custom-margin">モード選択</p>
                <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: 'black' }}>
                    {selectedMode}
                </button>
@@ -97,14 +97,14 @@ const Dropdowns = ({onLanguageSelect}) => {
                </div>
            </div>
        <div className="btn-group-2 d-inline-block">
-               <p className="text-above-button-b custom-margin">Language</p>
+               <p className="text-above-button-b custom-margin">言語選択</p>
                <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: 'black' }}>
                    {selectedLanguage}
                </button>
                <div className="dropdown-menu">
                    <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("English")}}>English</a>
-                   <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("French")}}>French</a>
-                   <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("Japanese")}}>Japanese</a>
+                   <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("French")}}>Français</a>
+                   <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("Japanese")}}>日本語</a>
                </div>
            </div>
            

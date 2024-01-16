@@ -24,8 +24,8 @@ const LP = () => {
                 </div>
                 <div className="btn-container">
                     <Link to= {selectedLanguage} className="btn btn-dark get-started-link">
-                    Get Started</Link>
-                    <p className="catch-phrase">Speak, Learn, Connect: Master New Languages, Open New Doors!</p>
+                    開始する</Link>
+                    <p style={{ fontFamily: 'Arial', fontSize: '16px', fontWeight:'bold' }} className="catch-phrase">Chat AIへようこそ！ 使用するAI、モード、使用言語を選択してください！</p>
                 </div>
             </div>
             <div className="right-section col">
