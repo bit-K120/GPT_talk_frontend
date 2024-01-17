@@ -27,8 +27,12 @@ const Dropdowns = ({onLanguageSelect}) => {
     const handleAiSelect = (ai) => {
          setselectedAi(ai);
     if (socket && socket.connected) {
+        if (ai == "Perplexity Ai"){
+        socket.emit("ai_select", "Mistral 7B");
+        } else {
         socket.emit("ai_select", ai);
         console.log("SENT ai_selected");
+        }
     } else {
         console.log("socket not connected");
     }
@@ -83,7 +87,7 @@ const Dropdowns = ({onLanguageSelect}) => {
            </button>
            <div className="dropdown-menu custom-dropdown-menu">
                <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("chat GPT")}}>Chat GPT(Stable)</a>
-               <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("Mistral 7B")}}>Mistral 7B</a>
+               <a className="dropdown-item" href="#" onClick={(e)=> {e.preventDefault(); handleAiSelect("Perplexity Ai")}}>Perplexity Ai</a>
            </div>
        </div>
        <div className="btn-group-3 d-inline-block">
@@ -104,7 +108,9 @@ const Dropdowns = ({onLanguageSelect}) => {
                <div className="dropdown-menu">
                    <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("English")}}>English</a>
                    <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("French")}}>Français</a>
+                   {selectedAi !=="Perplexity Ai" && (
                    <a className="dropdown-item" href="#"  onClick={(e)=>{e.preventDefault(); handleLanguageSelect("Japanese")}}>日本語</a>
+                   )}
                </div>
            </div>
            
@@ -117,7 +123,9 @@ const Dropdowns = ({onLanguageSelect}) => {
                     <div className="dropdown-menu">
                         <a className="dropdown-item" href="#" onClick={(e)=>{e.preventDefault(); handleOutLanguageSelect("English")}}>English</a>
                         <a className="dropdown-item" href="#" onClick={(e)=>{e.preventDefault(); handleOutLanguageSelect("French")}}>French</a>
+                        {selectedAi !=="Perplexity Ai" && (
                         <a className="dropdown-item" href="#" onClick={(e)=>{e.preventDefault(); handleOutLanguageSelect("Japanese")}}>Japanese</a>
+                        )}
                     </div>
                 </div>
             )}
